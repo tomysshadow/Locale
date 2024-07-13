@@ -26,7 +26,7 @@ int main(int argc, const char** argv) {
 	Locale tryGlobalLocale("INVALID", LC_ALL, true);
 	std::cout << "Try Global Locale: " << tryGlobalLocale.getName() << std::endl;
 
-	/** Strings To Doubles **/
+	/** Strings To Numbers **/
 	std::cout << std::endl;
 
 	// default double conversion behaviour, which consistently expects periods instead of commas
