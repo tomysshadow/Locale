@@ -17,8 +17,8 @@
 class Locale {
 	public:
 	typedef std::variant<std::string, std::wstring> NAME;
-	typedef std::vector<std::string> NAME_VECTOR;
-	typedef std::initializer_list<std::string> NAME_INITIALIZER_LIST;
+	typedef std::vector<NAME> NAME_VECTOR;
+	typedef std::initializer_list<NAME> NAME_INITIALIZER_LIST;
 	typedef int CATEGORY;
 	typedef int LC;
 
