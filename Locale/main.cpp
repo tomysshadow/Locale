@@ -52,9 +52,6 @@ int main(int argc, const char** argv) {
 	// for this conversion, the string has a period instead of a comma, because this German Locale is for the Monetary LC only
 	std::cout << "String To Double (German [Monetary:]) " << stringToDouble("1.2345", resultDouble, germanMonetaryLocale) << "/" << resultDouble << std::endl;
 
-	/** Strings To Numbers **/
-	std::cout << std::endl;
-
 	// default float conversion behaviour, which consistently expects periods instead of commas
 	float resultFloat = 0.0f;
 	std::cout << "String To Float: " << stringToFloat("1.2345", resultFloat) << "/" << resultFloat << std::endl;
