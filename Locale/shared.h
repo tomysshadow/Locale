@@ -7,7 +7,7 @@
 #include <windows.h>
 
 // tries to ensure consistent interpretation of periods and commas in string to number conversions
-// first tries the IETF locale "en-US", then the language[_country-region[.code-page]] locale "en_US"
+// first tries the IETF name "en-US", then the ISO 15897 name "en_US"
 // then tries the global locale (typically "C") if neither are available
 static const Locale STRING_TO_NUMBER_LOCALE_DEFAULT({"en-US", "en_US"}, LC_NUMERIC, true);
 
