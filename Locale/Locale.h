@@ -70,6 +70,7 @@ class Locale {
 	Locale &operator=(const NAME_VECTOR &assignNameVector);
 	Locale(const char* name, LC lc = LC_ALL, bool tryGlobal = false);
 	Locale(const wchar_t* name, LC lc = LC_ALL, bool tryGlobal = false);
+	Locale(const NAME &name, LC lc = LC_ALL, bool tryGlobal = false);
 	Locale(const NAME_VECTOR &nameVector, LC lc = LC_ALL, bool tryGlobal = false);
 	Locale(const NAME_INITIALIZER_LIST &nameInitializerList, LC lc = LC_ALL, bool tryGlobal = false);
 	operator std::string() const;

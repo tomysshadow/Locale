@@ -116,6 +116,10 @@ Locale::Locale(const wchar_t* name, LC lc, bool tryGlobal) : name(name ? name : 
 	create(tryGlobal);
 }
 
+Locale::Locale(const NAME &name, LC lc, bool tryGlobal) : name(name), lc(lc) {
+	create(tryGlobal);
+}
+
 Locale::Locale(const NAME_VECTOR &nameVector, LC lc, bool tryGlobal) : lc(lc) {
 	create(nameVector, tryGlobal);
 }
