@@ -33,6 +33,9 @@ int main(int argc, const char** argv) {
 	double resultDouble = 0.0;
 	std::cout << "String To Double: " << stringToDouble("1.2345", resultDouble) << "/" << resultDouble << std::endl;
 
+	// a failed conversion results in a size and value of zero
+	std::cout << "String To Double (Invalid:) " << stringToDouble("INVALID", resultDouble) << "/" << resultDouble << std::endl;
+
 	// here, we create a Locale object without any parameters, so it uses the Global Locale (typically "C")
 	std::cout << "String To Double (Global:) " << stringToDouble("1.2345", resultDouble, Locale()) << "/" << resultDouble << std::endl;
 
@@ -56,6 +59,7 @@ int main(int argc, const char** argv) {
 	float resultFloat = 0.0f;
 	std::cout << "String To Float: " << stringToFloat("1.2345", resultFloat) << "/" << resultFloat << std::endl;
 
+	// long and unsigned long
 	long resultLong = 0;
 	std::cout << "String To Long: " << stringToLong("-12345", resultLong) << "/" << resultLong << std::endl;
 
