@@ -19,15 +19,13 @@ Locale& Locale::create(bool tryGlobal) {
 		return createGlobal(tryGlobal);
 	}
 
-	_locale_t locale = 0;
-
-	if (std::holds_alternative<std::wstring>(name)) {
-		locale = _wcreate_locale(lc, std::get<std::wstring>(name).c_str());
-	} else {
-		locale = _create_locale(lc, std::get<std::string>(name).c_str());
-	}
-
-	cLocale = C_LOCALE(locale, CLocaleDeleter());
+	cLocale = C_LOCALE(
+		std::holds_alternative<std::wstring>(name)
+		? _wcreate_locale(lc, std::get<std::wstring>(name).c_str())
+		: _create_locale(lc, std::get<std::string>(name).c_str()),
+	
+		CLocaleDeleter()
+	);
 
 	if (!cLocale) {
 		return createGlobal(tryGlobal);
