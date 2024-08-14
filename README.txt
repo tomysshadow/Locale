@@ -1,4 +1,4 @@
-Locale 1.0.0
+Locale 1.0.1
 By Anthony Kleine
 
 This is a class which simplifies the creation of locales. Windows only.
