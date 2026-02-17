@@ -29,7 +29,7 @@
     <ClInclude Include="scope_guard.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shared.h">
+    <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

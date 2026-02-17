@@ -1,5 +1,4 @@
 #pragma once
-#define _WIN32_WINNT 0x0500
 #include "scope_guard.hpp"
 #include "Locale.h"
 #include <stdexcept>
@@ -193,12 +192,12 @@ inline size_t stringToLongUnsignedWide(const wchar_t* str, unsigned long &result
 	return size;
 }
 
-inline long stringToLongUnsignedOrDefaultValue(const char* str, unsigned long defaultValue = 0, int base = 0, const Locale &locale = STRING_TO_NUMBER_LOCALE_DEFAULT) {
+inline unsigned long stringToLongUnsignedOrDefaultValue(const char* str, unsigned long defaultValue = 0, int base = 0, const Locale &locale = STRING_TO_NUMBER_LOCALE_DEFAULT) {
 	unsigned long result = 0;
 	return stringToLongUnsigned(str, result, base, locale) ? result : defaultValue;
 }
 
-inline long stringToLongUnsignedOrDefaultValueWide(const wchar_t* str, unsigned long defaultValue = 0, int base = 0, const Locale &locale = STRING_TO_NUMBER_LOCALE_DEFAULT) {
+inline unsigned long stringToLongUnsignedOrDefaultValueWide(const wchar_t* str, unsigned long defaultValue = 0, int base = 0, const Locale &locale = STRING_TO_NUMBER_LOCALE_DEFAULT) {
 	unsigned long result = 0;
 	return stringToLongUnsignedWide(str, result, base, locale) ? result : defaultValue;
 }
