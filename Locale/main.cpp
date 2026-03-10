@@ -1,5 +1,10 @@
-#include "utils.h"
+#include "Locale.h"
+#include "StringToNumber.h"
 #include <iostream>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 int main(int argc, const char** argv) {
 	/** Creating Locales **/
@@ -18,7 +23,7 @@ int main(int argc, const char** argv) {
 	// creating an invalid locale throws an exception
 	try {
 		Locale invalidLocale("INVALID", LC_ALL, false);
-	} catch (Locale::Invalid) {
+	} catch (const Locale::Invalid&) {
 		std::cout << "Locale invalid" << std::endl;
 	}
 
@@ -31,29 +36,29 @@ int main(int argc, const char** argv) {
 
 	// default double conversion behaviour, which consistently expects periods instead of commas
 	double resultDouble = 0.0;
-	std::cout << "String To Double: " << stringToDouble("1.2345", resultDouble) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double: " << stringToFloat("1.2345", resultDouble) << "/" << resultDouble << std::endl;
 
 	// a failed conversion results in a size and value of zero
-	std::cout << "String To Double (Invalid:) " << stringToDouble("INVALID", resultDouble) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (Invalid:) " << stringToFloat("INVALID", resultDouble) << "/" << resultDouble << std::endl;
 
 	// here, we create a Locale object without any parameters, so it uses the Global Locale (typically "C")
-	std::cout << "String To Double (Global:) " << stringToDouble("1.2345", resultDouble, Locale()) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (Global:) " << stringToFloat("1.2345", resultDouble, Locale()) << "/" << resultDouble << std::endl;
 
 	// here, we use the ISO 15897 name "en_AU" to create a Locale object
-	std::cout << "String To Double (Australian English - ISO 15897:) " << stringToDouble("1.2345", resultDouble, "en_AU") << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (Australian English - ISO 15897:) " << stringToFloat("1.2345", resultDouble, "en_AU") << "/" << resultDouble << std::endl;
 
 	// here, we use both the IETF and ISO 15897 names "en-CA" and "en_CA" to create a Locale object
-	std::cout << "String To Double (Canadian English - IETF/ISO 15897:) " << stringToDouble("1.2345", resultDouble, {"en-CA", "en_CA"}) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (Canadian English - IETF/ISO 15897:) " << stringToFloat("1.2345", resultDouble, {"en-CA", "en_CA"}) << "/" << resultDouble << std::endl;
 	
 	// here, we use the Locale objects we got the names of before
-	std::cout << "String To Double (American English:) " << stringToDouble("1.2345", resultDouble, americanEnglishLocale) << "/" << resultDouble << std::endl;
-	std::cout << "String To Double (British English:) " << stringToDouble("1.2345", resultDouble, britishEnglishLocale) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (American English:) " << stringToFloat("1.2345", resultDouble, americanEnglishLocale) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (British English:) " << stringToFloat("1.2345", resultDouble, britishEnglishLocale) << "/" << resultDouble << std::endl;
 	
 	// for this conversion, the string has a comma instead of a period
-	std::cout << "String To Double (German:) " << stringToDouble("1,2345", resultDouble, germanLocale) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (German:) " << stringToFloat("1,2345", resultDouble, germanLocale) << "/" << resultDouble << std::endl;
 
 	// for this conversion, the string has a period instead of a comma, because this German Locale is for the Monetary LC only
-	std::cout << "String To Double (German [Monetary:]) " << stringToDouble("1.2345", resultDouble, germanMonetaryLocale) << "/" << resultDouble << std::endl;
+	std::cout << "String To Double (German [Monetary:]) " << stringToFloat("1.2345", resultDouble, germanMonetaryLocale) << "/" << resultDouble << std::endl;
 
 	// default float conversion behaviour, which consistently expects periods instead of commas
 	float resultFloat = 0.0f;
@@ -64,6 +69,6 @@ int main(int argc, const char** argv) {
 	std::cout << "String To Long: " << stringToLong("-12345", resultLong) << "/" << resultLong << std::endl;
 
 	unsigned long resultLongUnsigned = 0;
-	std::cout << "String To Long (Unsigned:) " << stringToLongUnsigned("12345", resultLongUnsigned) << "/" << resultLongUnsigned << std::endl;
+	std::cout << "String To Long (Unsigned:) " << stringToLong("12345", resultLongUnsigned) << "/" << resultLongUnsigned << std::endl;
 	return 0;
 }

@@ -21,15 +21,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringToNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Locale.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scope_guard.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="StringToNumber.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -150,11 +150,11 @@
   <ItemGroup>
     <ClCompile Include="Locale.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="StringToNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Locale.h" />
-    <ClInclude Include="scope_guard.hpp" />
-    <ClInclude Include="utils.h" />
+    <ClInclude Include="StringToNumber.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\README.txt" />
